@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+ cout << "Enter your name: ";
+    string strName;
+    getline(cin, strName);      // Get user's name , get the entire line, including spaces
+while (1)
+{
+    bool bRejected=false; // has strName been rejected? Initially is not.
+
+    // Step through each character in the string until we either hit
+    // the end of the string, or we rejected a character
+    for (unsigned int nIndex=0; nIndex < strName.length() && !bRejected; nIndex++)
+    {
+        // If the current character is an alpha character, that's fine
+        if (isalpha(strName[nIndex])){
+            if (nIndex == (strName.length()-1)){
+        cout << "your name is valid";}
+        }
+            //continue;
+
+        // If it's a space, that's fine too
+       else  if (strName[nIndex]==' ')
+
+               {
+       if (nIndex == (strName.length()-1)){
+        cout << "your name is valid but remove unnecessary space";}
+               }  continue;
+        // Otherwise we're rejecting this input
+        bRejected = true;
+    }
+
+    // If the input has been accepted, exit the while loop
+    // otherwise we're going to loop again
+    if (bRejected){
+        cout << "input rejected, Only alphabets are allowed!!!";
+    }
+        break;
+}
+return 0;
+}
