@@ -1,0 +1,34 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    int age;
+
+    while (1)
+    {
+       int age;
+       cout << "enter your age"<< endl;
+       cin >> age;
+
+       if(cin.fail()){
+       cin.clear();
+       cin.ignore(1000, '\n');
+       continue;
+       }
+
+       cin.ignore(1000,'\n'); // remove stored gibberish from the input stream
+       if (cin.gcount()> 1) //if anything other than '\n' is removed then stream has gibberish in it. eg: input may be 23B. so provide input again
+        continue;
+
+       cin.ignore(1000,'\n'); //always remove stored gibberish from the input stream
+       if (age <= 0)
+        continue;
+
+      break;
+
+
+
+    }
+    cout<< "your age is: " << age;
+}
