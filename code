@@ -18,22 +18,20 @@ while (1)
         if (isalpha(strName[nIndex])){
             if (nIndex == (strName.length()-1)){
         cout << "your name is valid";}
+          continue;
         }
-            //continue;
+
 
         // If it's a space, that's fine too
-       else  if (strName[nIndex]==' ')
+      else if (strName[nIndex]==' ')
 
                {
        if (nIndex == (strName.length()-1)){
-        cout << "your name is valid but remove unnecessary space";}
-               }  continue;
+        cout << "your name is valid but remove unnecessary blank space at the end";}
+               continue;  }
         // Otherwise we're rejecting this input
         bRejected = true;
     }
-
-    // If the input has been accepted, exit the while loop
-    // otherwise we're going to loop again
     if (bRejected){
         cout << "input rejected, Only alphabets are allowed!!!";
     }
