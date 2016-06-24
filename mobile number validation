@@ -1,0 +1,40 @@
+// write a program which will validate a mobile number written in the format (###)-###-####
+//# => any number between 0 to 9, - => white space.
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+bool isNumberMatch(string input, string format){
+for (unsigned int nIndex=0; nIndex < input.length();nIndex++)
+{
+
+    switch(format[nIndex]){
+
+case '#':
+      if (!isdigit(input[nIndex]))
+        return false;
+case '-':
+    if (!isspace(input[nIndex]))
+        return false;
+default:
+    if (input[nIndex]!=format[nIndex])
+        return false;
+    }
+    return true;
+}
+     }
+
+
+
+int main(){
+string mobileNumber;
+string inputFormat = "(###)-###-####";
+while (1){
+cout << "enter mobile number in the format (###)-###-####"<< endl;
+getline(cin,mobileNumber);
+if(isNumberMatch(mobileNumber, inputFormat))
+    break; // the user can come out of the loop only when he enters a valid input, else it will ask repeatedly to enter in a valid format.
+}
+cout<< "your entered mobile number is in valid format & is : "<< mobileNumber << endl;
+}
